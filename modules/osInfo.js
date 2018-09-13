@@ -1,5 +1,6 @@
 var os = require('os');
 var time = require('./formatTime');
+var colors = require('colors');
 
 function getOSinfo() {
   var type = os.type();
@@ -18,12 +19,12 @@ function getOSinfo() {
   var uptime = os.uptime();
   var user = os.userInfo();
 
-  console.log('OS:',type);
-  console.log('Release:',release);
-  console.log('CPU Model:',cpu);
-  console.log('Uptime: ',time.format(uptime));
-  console.log('User name:', user.username);
-  console.log('Home dir:', user.homedir);
+  console.log('OS:'.blue, type);
+  console.log('Release:'.green, release);
+  console.log('CPU Model:'.red, cpu);
+  console.log('Uptime:'.rainbow, time.format(uptime));
+  console.log('User name:'.yellow, user.username);
+  console.log('Home dir:'.magenta, user.homedir);
 }
 
 exports.print = getOSinfo;
